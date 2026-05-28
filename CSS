@@ -1133,3 +1133,138 @@
 .ed-element.preset-blog-post-wireframe {
 	@include blog-post;
 }
+
+/* Blog Preview Section */
+.os-blog-preview {
+	padding: 4rem 1.5rem;
+}
+
+.os-blog-preview__inner {
+	max-width: $content-width;
+	margin: 0 auto;
+}
+
+.os-blog-preview__item {
+	display: flex;
+	align-items: flex-start;
+	gap: 2.5rem;
+	padding: 2.5rem 0;
+	border-bottom: 1px solid rgba($color-primary, 0.15);
+
+	&:first-child { padding-top: 0; }
+	&:last-of-type { border-bottom: none; }
+}
+
+.os-blog-preview__img-link {
+	flex: 0 0 auto;
+	display: block;
+	width: 280px;
+	overflow: hidden;
+}
+
+.os-blog-preview__img {
+	display: block;
+	width: 280px;
+	height: 200px;
+	object-fit: cover;
+	transition: transform 0.4s ease-in-out;
+
+	&:hover { transform: scale(1.04); }
+}
+
+.os-blog-preview__content {
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.os-blog-preview__date {
+	display: block;
+	font-size: 0.8rem;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	opacity: 0.55;
+	margin-bottom: 0.6rem;
+}
+
+.os-blog-preview__title {
+	margin-bottom: 0.8rem;
+
+	a {
+		color: inherit;
+		text-decoration: none;
+		transition: color $transition-duration $transition-timing;
+
+		&:hover { color: $color-secondary; }
+	}
+}
+
+.os-blog-preview__excerpt-wrap {
+	position: relative;
+	max-height: 4.8em;
+	overflow: hidden;
+	line-height: 1.6;
+
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 2.2em;
+		background: linear-gradient(to bottom, transparent, #{$color-background});
+		pointer-events: none;
+	}
+}
+
+.os-blog-preview__read-more {
+	display: inline-block;
+	margin-top: 0.85rem;
+	color: $color-secondary;
+	text-decoration: none;
+	font-size: 0.875rem;
+	letter-spacing: 0.5px;
+	transition: color $transition-duration $transition-timing;
+
+	&:hover {
+		color: $color-primary;
+		text-decoration: none;
+	}
+}
+
+.os-blog-preview__footer {
+	text-align: center;
+	padding-top: 2.5rem;
+}
+
+.os-blog-preview__btn {
+	display: inline-block;
+	background: $color-secondary;
+	color: color-contrast($color-secondary, $color-background, $color-primary);
+	padding: 0.5rem 2rem;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 0.875rem;
+	border: 1px solid transparent;
+	transition: all $transition-duration $transition-timing;
+
+	&:hover {
+		background: $button-background-active;
+		text-decoration: none;
+	}
+}
+
+@media (max-width: #{$breakpoint-sm-max}) {
+	.os-blog-preview__item {
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.os-blog-preview__img-link,
+	.os-blog-preview__img {
+		width: 100%;
+		height: 220px;
+	}
+}
